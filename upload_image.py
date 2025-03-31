@@ -205,7 +205,7 @@ def main():
 
     # Output all upload links at the end
     if upload_results:
-        print("\Upload links:")
+        print("Upload links:")
         for path, url in upload_results:
             print(url)
 
