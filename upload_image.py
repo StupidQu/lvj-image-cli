@@ -22,7 +22,8 @@ class ImageUploader:
 
     def get_challenge(self) -> Dict[str, Any]:
         """Get proof of work challenge from server"""
-        response = requests.get(f"{self.endpoint}/api/challenge")
+        response = requests.get(f"{self.endpoint}/api2/challenge")
+        print(response.text)
         if response.status_code != 200:
             print(f"Failed to get challenge: {response.status_code}")
             sys.exit(1)
@@ -125,7 +126,7 @@ class ImageUploader:
 
             print("Uploading...")
             response = requests.post(
-                f"{self.endpoint}/api/upload", files=files, data=data)
+                f"{self.endpoint}/api2/upload", files=files, data=data)
             response.raise_for_status()
 
             result = response.json()
